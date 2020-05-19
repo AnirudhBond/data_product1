@@ -1,0 +1,35 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## March 11, 1996
+### Corona cases in metro cities of India
+
+```{r cars,warning=FALSE,message=FALSE}
+library(leaflet)
+df = data.frame(city = c("Mumbai",
+"Delhi",
+"Kolkata",
+"Chennai",
+"Bengalūru",
+"Hyderabad","Ahmadābād"
+), lat = c(18.987807
+,28.651952
+,22.562627
+,13.084622
+,12.977063
+,17.384052
+,23.025793),lng = c(72.836447
+,77.231495
+,88.363044
+,80.248357
+,77.58716
+,78.456355
+,72.587265
+),cases = c(33053,10054,2677,11224,1147,1551,11379))
+
+df %>% leaflet() %>% addTiles() %>% addCircles(weight = 1,radius = 10*(df$cases))
+
+```
+
